@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration scan="true" scanPeriod="15 seconds">
+
+	<property name="LOGS" value="./logs" />
+
+	<appender name="Console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable
+			</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="STASH"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./teste-eicon.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>./teste-eicon.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			
+			<maxHistory>7</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable
+			</Pattern>
+		</encoder>
+		<!-- <encoder class="net.logstash.logback.encoder.LogstashEncoder" />  -->
+	</appender>
+	
+	<root level="DEBUG">
+		<appender-ref ref="STASH" />
+	</root>
+
+	<!-- LOG everything at INFO level -->
+	<root level="info">
+		<appender-ref ref="Console" />
+	</root>
+
+	<!-- LOG "com.baeldung*" at TRACE level -->
+	<logger name="br.com.mediapro" level="info" additivity="false">
+		<appender-ref ref="Console" />
+		<appender-ref ref="STASH" />
+	</logger>
+
+</configuration>

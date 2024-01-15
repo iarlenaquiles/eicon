@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eicon-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: false
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3309/teste_java?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=America/Sao_Paulo&useSSL=false&allowPublicKeyRetrieval=true
+    username: teste
+    password: teste@123
+  cache:
+     type: none
+server:
+  port: 9093
+  servlet:
+    context-path: /api
+logging:
+  file:
+    name: teste-eicon.log
+

@@ -1,0 +1,3 @@
+Este é um exemplo de arquivo.
+Conteúdo da linha 1.
+Conteúdo da linha 2.
