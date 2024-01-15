@@ -34,8 +34,8 @@ mysql> grant all on teste_eicon.* to 'eicon'@'%'; -- Gives all privileges to the
 In order to start developing to the project further:
 
 ```shell
-git clone git@github.com/iarlenaquiles/teste_eicon.git
-cd teste_eicon/
+git clone git@github.com/iarlenaquiles/eicon.git
+cd eicon/
 mvnw clean install
 mvnw spring-boot:run
 ```
